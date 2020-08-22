@@ -11,6 +11,10 @@ Things you may want to cover:
 
 * Configuration
 
+* Heroku apps:info
+Git URL:        https://git.heroku.com/furima-abe.git
+Web URL:        https://furima-abe.herokuapp.com/
+
 * Database creation
 ## DB 設計
 
@@ -29,8 +33,8 @@ Things you may want to cover:
 
 ### Association
 
-* has_many :items
-* has_many :item_transactions
+- has_many :items
+- has_many :item_transactions
 
 ## addresses table
 
@@ -46,7 +50,7 @@ Things you may want to cover:
 
 ### Association
 
-* belongs_to :item_transaction
+- belongs_to :item_transaction
 
 ## items table
 
