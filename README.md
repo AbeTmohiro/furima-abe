@@ -41,12 +41,12 @@ Web URL:        https://furima-abe.herokuapp.com/
 | Column               | Type    | Options           |
 |----------------------|---------|-------------------|
 | postal_code          | integer | null: false       |
-| prefecture           | integer | null: false       |
 | city                 | string  | null: false       |
 | address              | string  | null: false       |
 | building             | string  |                   |
 | phone_number         | string  | null: false       |
 | item_transaction_id  | integer | foreign_key: true |
+| prefecture_id(acitve_hash)        | integer    | null: false       |
 
 ### Association
 
