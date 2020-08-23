@@ -38,15 +38,15 @@ Web URL:        https://furima-abe.herokuapp.com/
 
 ## addresses table
 
-| Column               | Type    | Options           |
-|----------------------|---------|-------------------|
-| postal_code          | integer | null: false       |
-| city                 | string  | null: false       |
-| address              | string  | null: false       |
-| building             | string  |                   |
-| phone_number         | string  | null: false       |
-| item_transaction_id  | integer | foreign_key: true |
+| Column                            | Type       | Options           |
+|-----------------------------------|------------|-------------------|
+| postal_code                       | integer    | null: false       |
 | prefecture_id(acitve_hash)        | integer    | null: false       |
+| city                              | string     | null: false       |
+| address                           | string     | null: false       |
+| building                          | string     |                   |
+| phone_number                      | string     | null: false       |
+| item_transaction                  | references | foreign_key: true |
 
 ### Association
 
