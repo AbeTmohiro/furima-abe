@@ -22,7 +22,7 @@ Web URL:        https://furima-abe.herokuapp.com/
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| nickname           | devise のデフォルト   | null: false,index: true |
+| nickname           | string              | null: false,index: true |
 | email              | devise のデフォルト   | null: false             |
 | encrypted_password | integer             | null: false             |
 | first_name         | string              | null: false             |
@@ -54,17 +54,17 @@ Web URL:        https://furima-abe.herokuapp.com/
 
 ## items table
 
-| Column                              | Type       | Options           |
-|-------------------------------------|------------|-------------------|
-| name                                | string     | null: false       |
-| price                               | integer    | null: false       |
-| info                                | text       | null: false       |
-| scheduled_delivery_id(acitve_hash)  | integer    | null: false       |
-| shipping_fee_status_id(acitve_hash) | integer    | null: false       |
-| prefecture_id(acitve_hash)          | integer    | null: false       |
-| sales_status_id(acitve_hash)        | integer    | null: false       |
-| category_id(acitve_hash)            | integer    | null: false       |
-| user_id(FK)                         | integer    | foreign_key: true |
+| Column                              | Type          | Options           |
+|-------------------------------------|---------------|-------------------|
+| name                                | string        | null: false       |
+| price                               | integer       | null: false       |
+| info                                | text          | null: false       |
+| scheduled_delivery_id(acitve_hash)  | integer       | null: false       |
+| shipping_fee_status_id(acitve_hash) | integer       | null: false       |
+| prefecture_id(acitve_hash)          | integer       | null: false       |
+| sales_status_id(acitve_hash)        | integer       | null: false       |
+| category_id(acitve_hash)            | integer       | null: false       |
+| user                                | references    | foreign_key: true |
 
 ### Association
 
@@ -73,10 +73,10 @@ Web URL:        https://furima-abe.herokuapp.com/
 
 ## item_transactions table
 
-| Column      | Type    | Options           |
-|-------------|---------|-------------------|
-| item_id     | integer | foreign_key: true |
-| user_id     | integer | foreign_key: true |
+| Column      | Type       | Options           |
+|-------------|------------|-------------------|
+| item        | references | foreign_key: true |
+| user        | references | foreign_key: true |
 
 ### Association
 
