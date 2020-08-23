@@ -24,7 +24,7 @@ Web URL:        https://furima-abe.herokuapp.com/
 |--------------------|---------------------|-------------------------|
 | nickname           | string              | null: false,index: true |
 | email              | devise のデフォルト   | null: false             |
-| encrypted_password | integer             | null: false             |
+| encrypted_password | devise のデフォルト   | null: false             |
 | first_name         | string              | null: false             |
 | last_name          | string              | null: false             |
 | first_name_kana    | string              | null: false             |
