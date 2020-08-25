@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before do
-    @user = FactoryBot.create(:user)
+    @user = FactoryBot.build(:user)
   end
   describe 'ユーザー作成' do
     context 'すべての情報が揃っていれば、登録できる。' do
@@ -47,9 +47,8 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Email can't be blank")
       end
       it 'emailは一意性を持つ' do
-        @user.email = 'test@test.co.jp'
-        second_user = FactoryBot.build(:user, email: 'test@test.co.jp')
-        binding.pry
+        @user.save
+        second_user = FactoryBot.build(:user, email: @user.email)
         second_user.valid?
         expect(second_user.errors.full_messages).to include("Email has already been taken")
       end
