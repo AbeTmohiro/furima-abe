@@ -65,4 +65,4 @@ gem 'devise'
 gem 'active_hash'
 gem 'rails-i18n'
 gem 'enum_help'
-
+gem 'pry-rails'
