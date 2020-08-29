@@ -1,4 +1,4 @@
-if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
+if (document.URL.match( /new/ )) {
   document.addEventListener('DOMContentLoaded', function(){
     const imageList = document.getElementById('image-list');
 
