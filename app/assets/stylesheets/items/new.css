@@ -11,6 +11,10 @@
   min-width: 500px;
 }
 
+#image-list img{
+  width: 200px;
+}
+
 .items-sell-header {
   padding: 5vh 0;
   text-align: center;
@@ -76,7 +80,7 @@
 .img-upload {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   padding: 2vh 0;
 }
 
