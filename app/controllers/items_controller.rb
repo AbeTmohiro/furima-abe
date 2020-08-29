@@ -20,19 +20,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    return redirect_to root_path if current_user.id != @item.user.id
   end
 
   def update
-    @item.update(item_params) if current_user.id == @item.user.id
-    return redirect_to item_path if @item.valid?
-
-    render 'edit'
-  end
-
-  def destroy
-    @item.destroy if current_user.id == @item.user.id
-    redirect_to root_path
   end
 
   private
