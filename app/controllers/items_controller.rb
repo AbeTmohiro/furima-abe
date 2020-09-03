@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :select_item, only: [:show]
+
   def index
     
   end
@@ -39,5 +41,9 @@ class ItemsController < ApplicationController
       :delivery_day_id,
       :price
     ).merge(user_id: current_user.id)
+  end
+
+  def select_item
+    @item = Item.find(params[:id])
   end
 end
