@@ -25,9 +25,9 @@
 
     <%# ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示にしましょう%>
     <% if user_signed_in? && current_user.id == @item.user_id %>
-    <%= link_to '商品の編集', "#", method: :get, class: "item-red-btn" %>
+    <%= link_to '商品の編集', edit_item_path(@item), method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
-    <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
+    <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
     <% end %>
 
     <%# 商品が売れていない場合はこちらを表示しましょう %>
@@ -78,7 +78,6 @@
       </div>
     </div>
   </div>
-  <%# /商品の概要 %>
 
   <div class="comment-box">
     <form>
