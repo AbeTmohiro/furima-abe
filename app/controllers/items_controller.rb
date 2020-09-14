@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :select_item, only: [:show,:edit,:update]
+  before_action :select_item, only: [:show,:edit,:update,:destroy]
   before_action :authenticate_user!, except: [:index,:show]
 
   def index
@@ -31,6 +31,11 @@ class ItemsController < ApplicationController
     return redirect_to item_path if @item.valid?
 
     render 'edit'
+  end
+
+  def destroy
+    @item.destroy if current_user.id == @item.user.id
+    redirect_to root_path
   end
 
   private
