@@ -14,4 +14,31 @@ class TransactionsController < ApplicationController
     end
     render 'index'
   end
+
+  private
+  def item_transaction_params
+    params.permit(
+      :token,
+      :item_id,
+      :postal_code,
+      :prefecture,
+      :city,
+      :addresses,
+      :building,
+      :phone_number
+    ).merge(user_id: current_user.id)
+  end
+
+  def pay_item
+    Payjp.api_key = ENV['PAYJP_SK']
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: item_transaction_params[:token],
+      currency: 'jpy'
+    )
+  end
+
+  def select_item
+    @item = Item.find(params[:item_id])
+  end
 end
