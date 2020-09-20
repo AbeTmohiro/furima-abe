@@ -18,4 +18,7 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: KANA_REGEX, message: 'Full-width katakana characters' } 
     validates :last_name_kana, format: { with: KANA_REGEX, message: 'Full-width katakana characters' } 
   end
+
+  has_many :items
+  has_many :deals
 end
