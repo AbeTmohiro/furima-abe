@@ -1,22 +1,24 @@
-class TransactionsController < ApplicationController
+class DealsController < ApplicationController
   before_action :authenticate_user!, only: [:index]
+  before_action :select_item, only: [:index, :create]
+
   def index
-    @item = Item.find(params[:item_id])
     return redirect_to root_path if current_user.id == @item.user_id
+    @deal = PayForm.new
   end
 
   def create
-    @item_transaction = PayForm.new(item_transaction_params)
-    if @item_transaction.valid?
+    @deal = PayForm.new(deal_params)
+    if @deal.save
       pay_item
-      @item_transaction.save
+      # @item_transaction.save
       return redirect_to root_path
     end
     render 'index'
   end
 
   private
-  def item_transaction_params
+  def deal_params
     params.permit(
       :token,
       :item_id,
@@ -33,7 +35,7 @@ class TransactionsController < ApplicationController
     Payjp.api_key = ENV['PAYJP_SK']
     Payjp::Charge.create(
       amount: @item.price,
-      card: item_transaction_params[:token],
+      card: deal_params[:token],
       currency: 'jpy'
     )
   end

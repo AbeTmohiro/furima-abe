@@ -1,10 +1,10 @@
 window.addEventListener("DOMContentLoaded", () => {
 
-  // 決済処理を許可するurlは</items/:id/transactions>の場合です。
+  // 決済処理を許可するurlは</items/:id/deals>の場合です。
   const path = location.pathname
-  const params = path.replace(/items/g, '').replace(/transactions/g, '').replace(/\//g, '');
+  const params = path.replace(/items/g, '').replace(/deals/g, '').replace(/\//g, '');
 
-  if (path.includes("items") && path.includes("transactions") && /^([1-9]\d*|0)$/.test(params)) {
+  if (path.includes("items") && path.includes("deals") && /^([1-9]\d*|0)$/.test(params)) {
     const PAYJP_PK = process.env.PAYJP_PK
     Payjp.setPublicKey(PAYJP_PK);
     const form = document.getElementById("charge-form");

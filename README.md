@@ -34,7 +34,7 @@ Web URL:        https://furima-abe.herokuapp.com/
 ### Association
 
 - has_many :items
-- has_many :item_transactions
+- has_many :deals
 
 ## addresses table
 
@@ -71,7 +71,7 @@ Web URL:        https://furima-abe.herokuapp.com/
 - belongs_to :user
 - has_one :item_transaction
 
-## item_transactions table
+## deals table
 
 | Column      | Type       | Options           |
 |-------------|------------|-------------------|

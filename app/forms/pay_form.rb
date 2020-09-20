@@ -5,7 +5,7 @@ class PayForm
   # <<バリデーション>>
   with_options presence: true do
     validates :item_id
-    validates :token, presence: { message: "can't be blank" }
+    # validates :token, presence: { message: "can't be blank" }
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'Input correctly' }
     validates :prefecture, numericality: { other_than: 0, message: 'Select' }
     validates :city
@@ -16,12 +16,12 @@ class PayForm
   end
 
   def save
-    item_transaction = ItemTransaction.create(
+    deal = Deal.create(
                           item_id: item_id,
                           user_id: user_id
                         )
-    Address.create(
-      item_transaction_id: item_transaction.id,
+    Address.create!(
+      deal_id: deal.id,
       postal_code: postal_code,
       prefecture: prefecture,
       city: city,
