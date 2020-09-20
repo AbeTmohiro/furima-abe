@@ -4,14 +4,14 @@ class DealsController < ApplicationController
 
   def index
     return redirect_to root_path if current_user.id == @item.user_id
-    @deal = PayForm.new
+    @pay_form = PayForm.new
   end
 
   def create
-    @deal = PayForm.new(deal_params)
-    if @deal.save
+    @pay_form = PayForm.new(deal_params)
+    if @pay_form.valid?
       pay_item
-      # @item_transaction.save
+      @pay_form.save
       return redirect_to root_path
     end
     render 'index'

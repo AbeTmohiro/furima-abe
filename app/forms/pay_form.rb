@@ -5,7 +5,7 @@ class PayForm
   # <<バリデーション>>
   with_options presence: true do
     validates :item_id
-    # validates :token, presence: { message: "can't be blank" }
+    validates :token, presence: { message: "can't be blank" }
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'Input correctly' }
     validates :prefecture, numericality: { other_than: 0, message: 'Select' }
     validates :city
