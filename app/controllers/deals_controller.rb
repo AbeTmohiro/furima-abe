@@ -4,6 +4,7 @@ class DealsController < ApplicationController
 
   def index
     return redirect_to root_path if current_user.id == @item.user_id
+    return redirect_to root_path if @item.deal != nil
     @pay_form = PayForm.new
   end
 
