@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  with_options numericality: { other_than: 0, message: 'Select please.' } do
+  with_options numericality: { other_than: 0, message: 'を選択してください。' } do
     validates :category_id
     validates :condition_id
     validates :shipping_fee_id
