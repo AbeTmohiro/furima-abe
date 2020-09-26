@@ -9,8 +9,16 @@ ja:
         price: 価格
         image: 画像
         delivery_day_id: 発送までの日数
+        name: 商品名
+        info: 商品の説明
         
       user:
+        nickname: ニックネーム
+        birth_date: 生年月日
+        first_name: お名前(姓)
+        last_name: お名前(名)
+        first_name_kana: お名前カナ(姓)
+        last_name_kana: お名前カナ(名)
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -160,7 +168,4 @@ ja:
         phone_number: 電話番号
         city: 市
         token: 正確なクレジットカード情報
-    errors:
-      messages:
-        select: を選択してください
 

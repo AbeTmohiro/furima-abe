@@ -7,7 +7,7 @@ class Item < ApplicationRecord
     validates :delivery_day_id
   end
 
-  validates_inclusion_of :price, in: 300..9_999_999, message: 'Out of setting range'
+  validates_inclusion_of :price, in: 300..9_999_999, message: 'の値が不正です'
 
   with_options presence: true do
     validates :image
