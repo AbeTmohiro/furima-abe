@@ -67,3 +67,4 @@ gem 'rails-i18n'
 gem 'enum_help'
 gem 'pry-rails'
 gem "payjp"
+gem 'rails-i18n'
